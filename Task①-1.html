@@ -10,19 +10,17 @@
 
   <script>
     'use strict';
-    <!-- 3の倍数なら　Fizz , 5の倍数なら Buzz ,　15の倍数なら FizzBuss -->
+    // 3の倍数なら　Fizz , 5の倍数なら Buzz ,　15の倍数なら FizzBuss
 
     for (let i = 1; i < 100; i++){
-      if (i % 15 === 0){
-      <!-- 15の倍数なら FizzBuss -->
+      if (i % 3 === 0 && i % 5 === 0){
+      // 15の倍数なら FizzBuss
         console.log('FizzBuzz ',i);
       }else if(i % 5 === 0){
-      <!-- 5の倍数なら Buzz -->
+      //5の倍数なら Buzz
         console.log('Buzz ',i);
       }else if(i % 3 === 0){
-        
-
-      <!-- 3の倍数なら　Fizz -->
+      //3の倍数なら　Fizz
         console.log('Fizz ',i);
       }
     }
