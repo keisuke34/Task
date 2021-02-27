@@ -8,6 +8,7 @@
 </head>
 <body>
   <script>
+    'use strict';
 
     //========================
     //現在持っているタスク一覧
@@ -17,9 +18,10 @@
     //2 : 散歩
     const array1 = ['========================','現在持っているタスク一覧','========================'];
     let array2 = ['掃除','買い物','散歩'];
-    let i, ale, bool, name1, name2;
 
-    for (i = 0 ; i < array1.length ; i++ ){
+    //let i, ale, bool, name1, name2;
+    
+    for (let i = 0 ; i < array1.length ; i++ ){
       console.log( array1[i]);
     };
     for (i = 0 ; i < array2.length ; i++ ){
@@ -28,18 +30,18 @@
     do{
       //【prompt】cancel or ok
       // 「確認,追加,削除,終了」の4つのいずれかを入力
-      name1 = prompt('「確認,追加,削除,終了」の4つのいずれかを入力してください');
+      let name1 = prompt('「確認,追加,削除,終了」の4つのいずれかを入力してください');
   //【確認】〇
       if (name1 === '確認'){
         //タスク一覧の表示
-        bool = 0;
+        let bool = 0;
         //alertの内容
-        ale = 'タスクを確認しました';        
+        let ale = 'タスクを確認しました';        
    //【追加】
       }else if(name1 === '追加'){
         //【prompt】cancel or ok
         //タスクの追加
-        name2 = prompt('タスクを入力してください');
+        let name2 = prompt('タスクを入力してください');
         if (name2 === ''){
           bool = 1;
           ale = 'タスク名が空欄です';
@@ -71,7 +73,7 @@
           ale = 'そのタスクはありませんでした';
           //削除するタスク名の検索
           for (i = 0; i < array2.length; i++) {
-          　//削除するタスク名がある場合
+            //削除するタスク名がある場合
             if (array2[i] === name2) {
               //タスクの削除
               array2.splice(i, 1);
