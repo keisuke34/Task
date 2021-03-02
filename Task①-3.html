@@ -17,43 +17,39 @@
     //1 : 買い物
     //2 : 散歩
     const array1 = ['========================','現在持っているタスク一覧','========================'];
-    let array2 = ['掃除','買い物','散歩'];
-
-    let i, ale, bool, name1, name2;
     
-    for (i = 0 ; i < array1.length ; i++ ){
-      console.log( array1[i]);
-    };
-    for (i = 0 ; i < array2.length ; i++ ){
-     console.log( i + ' : ' + array2[i]);
-    };
+    let array2 = ['掃除','買い物','散歩'];
+    let i,ale, name1, name2;
+
+    const Task = function(){
+      array1.forEach((value)=>console.log(value));
+      array2.forEach((value,index)=>console.log(index,value));
+    } 
+    const Aler = function(ale){
+      alert(ale);
+    }
+    Task();
     do{
       //【prompt】cancel or ok
       // 「確認,追加,削除,終了」の4つのいずれかを入力
-      name1 = prompt('「確認,追加,削除,終了」の4つのいずれかを入力してください');
+     name1 = prompt('「確認,追加,削除,終了」の4つのいずれかを入力してください');
   //【確認】〇
       if (name1 === '確認'){
-        //タスク一覧の表示
-        bool = 0;
-        //alertの内容
-        ale = 'タスクを確認しました';        
+        Task();
+        Aler('タスクを確認しました');
    //【追加】
       }else if(name1 === '追加'){
         //【prompt】cancel or ok
         //タスクの追加
         name2 = prompt('タスクを入力してください');
         if (name2 === ''){
-          bool = 1;
-          ale = 'タスク名が空欄です';
+          Aler('タスク名が空欄です');
         }else if( name2 === null){
-          bool = 1;
-          ale = 'キャンセルされました';
+          Aler('キャンセルされました');
         }else{
           array2.push(name2);
-          //タスク一覧の表示選択
-          bool = 0;
-          //alertの内容
-          ale = 'タスクを追加しました';
+          Task();
+          Aler('タスクを追加しました');
         }  
    //【削除】
       }else if(name1 === '削除'){          
@@ -61,14 +57,10 @@
         // タスクを削除
         name2 = prompt('タスクを入力してください');
         if (name2 === ''){
-          bool = 1;
-          ale = 'タスク名が空欄です';
+          Aler('タスク名が空欄です');
         }else if(name2 === null){
-          bool = 1;
-          ale = 'キャンセルされました';
+          Aler('キャンセルされました');
         }else{
-          //タスク一覧の非表示
-          bool = 1;
           //alertの内容
           ale = 'そのタスクはありませんでした';
           //削除するタスク名の検索
@@ -77,41 +69,22 @@
             if (array2[i] === name2) {
               //タスクの削除
               array2.splice(i, 1);
-              //タスク一覧の表示
-              bool = 0;
+              Task();
               //alertの内容
               ale = 'タスクを削除しました';
               break;
             }
+            
           };
+          Aler(ale);
         }
    //【終了】〇
       }else if(name1 === '終了'){
-        //タスク一覧の非表示
-        bool = 1
-        //alertの内容
-        ale = '終了します。';
+        Aler('終了します。');
       }else if(name1 === null){
-        bool = 1;
-        ale = '終了を選択してください';             
+        Aler('終了を選択してください');             
       }else{
-        bool = 1;
-        ale = '確認,追加,削除,終了 を入力してください'
-      }
-    //タスク一覧の処理
-      if (bool === 0) {
-        //表示
-        for (i = 0; i < array1.length; i++) {
-          console.log(
-          array1[i]);
-        };
-        for (i = 0; i < array2.length; i++) {
-          console.log(i + ' : ' + array2[i]);
-        };
-        alert(ale);
-      } else if (bool === 1) {
-        //非表示
-        alert(ale);
+        Aler('確認,追加,削除,終了 を入力してください');
       }
     }while(name1 !== '終了');
   </script>
